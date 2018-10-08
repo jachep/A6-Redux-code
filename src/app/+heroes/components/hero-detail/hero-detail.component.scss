@@ -1,0 +1,32 @@
+:host {
+  .actions {
+    margin-bottom: 15px;
+  }
+
+  mat-card {
+    margin-bottom: 15px;
+
+    [mat-card-image] {
+      min-height: 300px;
+      max-width: 500px;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+}
+
+.hero {
+  max-width: 1350px;
+  margin: 0 auto;
+  mat-card {
+    display: flex;
+    @media screen and (max-width: 1024px) {
+      flex-flow: column;
+    }
+    .mat-card-header {
+      align-items: center;
+      text-transform: uppercase;
+      max-width: 100px;
+    }
+  }
+}

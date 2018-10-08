@@ -1,0 +1,25 @@
+<div class="hero" *ngIf="hero">
+  <div fxLayout="row" fxLayoutAlign="end center" class="actions">
+    <button app-icon-button [routerLink]="['/heroes', hero.id, 'edit']">Edit</button>
+  </div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><h3>{{ hero.character.name }}</h3></mat-card-title>
+    </mat-card-header>
+    <div [ngStyle]="{ 'background-image': 'url(' + getLandscapeXlargeImage(hero.character.thumbnail) + ')' }" mat-card-image></div>
+    <mat-card-content>
+      <h4>Description</h4>
+      <p *ngIf="hero.character.description.length > 0">{{ hero.character.description }}</p>
+      <h4>Powers</h4>
+      <ul>
+        <li *ngFor="let power of powers">{{ power.name | titlecase }}</li>
+      </ul>
+      <h4>Learn More</h4>
+      <ul>
+        <li *ngIf="getCharacterUrlByType('comiclink').url"><a [href]="getCharacterUrlByType('comiclink').url">Comics</a></li>
+        <li *ngIf="getCharacterUrlByType('detail').url"><a [href]="getCharacterUrlByType('detail').url">Detail</a></li>
+        <li *ngIf="getCharacterUrlByType('wiki').url"><a [href]="getCharacterUrlByType('wiki').url">Wiki</a></li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
